@@ -295,7 +295,7 @@ export const mockApiResponses = {
 // import { mockProducts, mockCategories, mockReviews } from './mockData';
 
 // function ProductList() {
-//   const [products, setProducts] = useState(mockProducts);
+//   const products, setProducts] =[ useState(mockProducts);
 
 //   // Nanti tinggal ganti dengan fetch ke API
 //   // useEffect(() => {

@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle, Leaf, ShoppingBag, ChevronLeft, ChevronRight, Sparkles, Heart, Star, ArrowRight } from "lucide-react";
 import JamuLogo from '@/assets/jamu-logo.png';
 import JamuBackground from '@/assets/jamu-background.jpg';
 import JamuAssets1 from '@/assets/jamu-assets1.jpeg';
 import JamuAssets2 from '@/assets/jamu-assets2.jpeg';
+import ProductSection from './sections/product';
 
 // Types
 interface JamuProduct {
@@ -101,6 +101,7 @@ export default function JamuLandingPage() {
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsVisible(true);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -119,9 +120,6 @@ export default function JamuLandingPage() {
     return () => clearInterval(interval);
   }, []);
 
-  const displayedProducts = PRODUCTS.filter(p => 
-    (activeFilter === 'all' || p.category === activeFilter) && !p.deletedAt
-  );
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % CAROUSEL_IMAGES.length);
@@ -171,7 +169,7 @@ export default function JamuLandingPage() {
         </div>
         
         {/* Floating particles effect */}
-        <div className="absolute inset-0 z-5">
+        {/* <div className="absolute inset-0 z-5">
           {[...Array(20)].map((_, i) => (
             <div
               key={i}
@@ -186,7 +184,7 @@ export default function JamuLandingPage() {
               }}
             />
           ))}
-        </div>
+        </div> */}
 
         <div className={`relative z-10 text-white max-w-3xl transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
@@ -373,74 +371,9 @@ export default function JamuLandingPage() {
         </div>
       </section>
 
-      {/* PRODUCT LIST with enhanced cards */}
-      <section id="products" className="py-24 px-4 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#6B4423] mb-4 uppercase tracking-wide">PRODUK KAMI</h2>
-          <p className="text-xl text-gray-600 italic">Karena satu masalah,<br/>butuh satu jamu yang pas.</p>
-        </div>
-
-        <div className="space-y-12">
-          {displayedProducts.length > 0 ? displayedProducts.map((prod, idx) => (
-            <Card 
-              key={prod.id} 
-              className="overflow-hidden border-none bg-white shadow-lg hover:shadow-2xl transition-all duration-500 rounded-2xl group transform hover:-translate-y-2"
-            >
-              <CardContent className={`p-0 flex flex-col ${idx % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-stretch relative`}>
-                {prod.popular && (
-                  <div className="absolute top-4 right-4 z-10 bg-[#FF8C42] text-white px-4 py-2 rounded-full text-xs font-bold shadow-lg flex items-center">
-                    <Star className="w-4 h-4 mr-1 fill-current" />
-                    POPULER
-                  </div>
-                )}
-                <div className="w-full md:w-2/5 h-64 md:h-auto relative overflow-hidden">
-                  <img 
-                    src={prod.image} 
-                    alt={prod.name} 
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </div>
-                <div className="p-8 md:p-12 flex-1 flex flex-col justify-center">
-                  <h3 className="text-2xl md:text-3xl font-bold text-[#3D2817] mb-4 tracking-wide group-hover:text-[#FF8C42] transition-colors">
-                    {prod.name}
-                  </h3>
-                  <p className="text-gray-600 text-base mb-6 leading-relaxed">{prod.description}</p>
-                  
-                  {prod.benefits && (
-                    <div className="mb-6 space-y-2">
-                      {prod.benefits.map((benefit, i) => (
-                        <div key={i} className="flex items-center text-sm text-gray-700">
-                          <CheckCircle className="w-4 h-4 mr-2 text-[#FF8C42]" />
-                          {benefit}
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  
-                  <div>
-                    <Button className="bg-[#6B4423] hover:bg-[#FF8C42] text-white px-8 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105 transform group/btn">
-                      LIHAT PRODUK
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          )) : (
-            <div className="text-center py-20">
-              <div className="text-6xl mb-4"></div>
-              <p className="text-gray-400 text-lg italic">Produk tidak tersedia untuk keluhan ini.</p>
-              <Button 
-                onClick={() => setActiveFilter('all')}
-                className="mt-6 bg-[#FF8C42] hover:bg-[#E67A35] text-white"
-              >
-                Lihat Semua Produk
-              </Button>
-            </div>
-          )}
-        </div>
-      </section>
+      {/* Products Section */}
+      <ProductSection />
+      
 
       {/* TESTIMONIALS SECTION */}
       <section className="py-20 px-4 bg-gradient-to-br from-[#FAF8F3] to-[#F5F1E8]">
@@ -573,41 +506,6 @@ export default function JamuLandingPage() {
         </div>
       </footer>
 
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0) translateX(0);
-          }
-          25% {
-            transform: translateY(-20px) translateX(10px);
-          }
-          50% {
-            transform: translateY(-10px) translateX(-10px);
-          }
-          75% {
-            transform: translateY(-15px) translateX(5px);
-          }
-        }
-        
-        .animate-float {
-          animation: float linear infinite;
-        }
-        
-        @keyframes fade-in {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        
-        .animate-fade-in {
-          animation: fade-in 1s ease-out;
-        }
-      `}</style>
 
     </div>
   );
