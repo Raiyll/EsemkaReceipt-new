@@ -33,6 +33,8 @@ export const mockCategories = [
     id: 1,
     name: "Jamu Kesehatan",
     description: "Jamu untuk menjaga kesehatan tubuh secara umum",
+    picture_url:
+      "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400",
     created_at: "2024-01-10T09:00:00Z",
     updated_at: "2024-01-10T09:00:00Z",
   },
@@ -40,6 +42,8 @@ export const mockCategories = [
     id: 2,
     name: "Jamu Kecantikan",
     description: "Jamu untuk perawatan kecantikan dan kulit",
+    picture_url:
+      "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400",
     created_at: "2024-01-10T09:05:00Z",
     updated_at: "2024-01-10T09:05:00Z",
   },
@@ -47,6 +51,8 @@ export const mockCategories = [
     id: 3,
     name: "Jamu Stamina",
     description: "Jamu untuk meningkatkan stamina dan vitalitas",
+    picture_url:
+      "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400",
     created_at: "2024-01-10T09:10:00Z",
     updated_at: "2024-01-10T09:10:00Z",
   },
@@ -54,6 +60,8 @@ export const mockCategories = [
     id: 4,
     name: "Jamu Herbal Tradisional",
     description: "Jamu tradisional warisan nenek moyang",
+    picture_url:
+      "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400",
     created_at: "2024-01-10T09:15:00Z",
     updated_at: "2024-01-10T09:15:00Z",
   },
