@@ -187,18 +187,38 @@ export default function JamuLandingPage() {
             />
           </div>
           <div className="hidden md:flex gap-6 text-white/90 text-sm font-medium">
-            <a href="#home" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">BERANDA</a>
-            <a href="#about" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">TENTANG</a>
-            <a href="/products" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">PRODUK KAMI</a>
-            <a href="#gallery" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">GALERI</a>
+            <a
+              href="#home"
+              className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">
+              BERANDA
+            </a>
+            <a
+              href="#about"
+              className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">
+              TENTANG
+            </a>
+            <a
+              href="/products"
+              className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">
+              PRODUK KAMI
+            </a>
+            <a
+              href="#gallery"
+              className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">
+              GALERI
+            </a>
           </div>
         </div>
       </nav>
 
-    {/* HERO SECTION with parallax - SEKARANG FULL VIEW */}
-      <section id="home" className="relative h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
-        <div className="absolute inset-0 z-0" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
-          <img 
+      {/* HERO SECTION with parallax - SEKARANG FULL VIEW */}
+      <section
+        id="home"
+        className="relative h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+        <div
+          className="absolute inset-0 z-0"
+          style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+          <img
             src={JamuBackground}
             alt="Herbal Background"
             className="w-full h-full object-cover"
@@ -207,18 +227,24 @@ export default function JamuLandingPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#f87108]" />
         </div>
 
-        <div className={`relative z-10 text-white max-w-3xl transition-all duration-1000 ${
-          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
-        }`}>
+        <div
+          className={`relative z-10 text-white max-w-3xl transition-all duration-1000 ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+          }`}>
           <div className="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
             <Sparkles className="inline w-4 h-4 mr-2 text-[#FF8C42]" />
-            <span className="font-poppins text-sm font-semibold uppercase tracking-widest">100% Bahan Alami</span>
+            <span className="font-poppins text-sm font-semibold uppercase tracking-widest">
+              100% Bahan Alami
+            </span>
           </div>
           <h1 className="font-yusei text-5xl md:text-6xl mb-6 font-black leading-tight">
-            Jamu Sehat dari Dapur<br />Kami untuk Keluarga Anda
+            Jamu Sehat dari Dapur
+            <br />
+            Kami untuk Keluarga Anda
           </h1>
           <p className="font-poppins text-lg md:text-xl mb-10 opacity-90 font-light max-w-2xl mx-auto">
-            Minuman tradisi yang menyehatkan, dibuat dengan cinta dan rempah pilihan
+            Minuman tradisi yang menyehatkan, dibuat dengan cinta dan rempah
+            pilihan
           </p>
           <div className="font-poppins flex flex-col sm:flex-row gap-6 justify-center">
             <Button className="bg-[#D97706] hover:bg-[#B45309] text-white rounded-md px-10 py-7 text-lg font-bold transition-all hover:scale-105 shadow-xl group">
@@ -236,19 +262,34 @@ export default function JamuLandingPage() {
       <section className="py-24 bg-[#FDFBF7] relative z-10">
         <div className="max-w-6xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
-            { icon: <CheckCircle className="text-[#D97706] w-12 h-12" />, title: "HARGA BERSAHABAT", desc: "Produk berkualitas dengan harga yang terjangkau untuk keluarga Indonesia." },
-            { icon: <Leaf className="text-[#D97706] w-12 h-12" />, title: "BAHAN ALAMI", desc: "Dibuat dari rempah-rempah pilihan tanpa bahan kimia berbahaya." },
-            { icon: <ShoppingBag className="text-[#D97706] w-12 h-12" />, title: "VARIAN LENGKAP", desc: "Tersedia berbagai jenis jamu untuk berbagai keluhan kesehatan." },
+            {
+              icon: <CheckCircle className="text-[#D97706] w-12 h-12" />,
+              title: "HARGA BERSAHABAT",
+              desc: "Produk berkualitas dengan harga yang terjangkau untuk keluarga Indonesia.",
+            },
+            {
+              icon: <Leaf className="text-[#D97706] w-12 h-12" />,
+              title: "BAHAN ALAMI",
+              desc: "Dibuat dari rempah-rempah pilihan tanpa bahan kimia berbahaya.",
+            },
+            {
+              icon: <ShoppingBag className="text-[#D97706] w-12 h-12" />,
+              title: "VARIAN LENGKAP",
+              desc: "Tersedia berbagai jenis jamu untuk berbagai keluhan kesehatan.",
+            },
           ].map((feat, i) => (
-            <div 
-              key={i} 
-              className="text-center flex flex-col items-center p-8 rounded-2xl bg-white border border-[#E8DCC8] transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group"
-            >
+            <div
+              key={i}
+              className="text-center flex flex-col items-center p-8 rounded-2xl bg-white border border-[#E8DCC8] transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group">
               <div className="mb-6 p-5 rounded-2xl bg-[#FDFBF7] group-hover:bg-[#D97706]/10 transition-colors">
                 {feat.icon}
               </div>
-              <h3 className="font-black text-[#3D2817] mb-4 text-xl tracking-tight uppercase">{feat.title}</h3>
-              <p className="text-gray-600 leading-relaxed font-medium">{feat.desc}</p>
+              <h3 className="font-black text-[#3D2817] mb-4 text-xl tracking-tight uppercase">
+                {feat.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed font-medium">
+                {feat.desc}
+              </p>
             </div>
           ))}
         </div>
@@ -258,13 +299,12 @@ export default function JamuLandingPage() {
       <section id="about" className="py-24 px-4 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
-            
             {/* Sisi Gambar - Pake bingkai estetik */}
             <div className="w-full md:w-1/2 relative">
               <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
-                <img 
+                <img
                   src={JamuBackground} // Pake image yang sama atau image proses pembuatan
-                  alt="Traditional Jamu Process" 
+                  alt="Traditional Jamu Process"
                   className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700"
                 />
               </div>
@@ -279,24 +319,36 @@ export default function JamuLandingPage() {
                 Warisan Nusantara
               </span>
               <h2 className="text-4xl md:text-5xl font-black text-[#3D2817] mb-8 leading-tight uppercase">
-                Melestarikan Tradisi <br/>Lewat <span className="text-[#8B4513]">Satu Botol</span>
+                Melestarikan Tradisi <br />
+                Lewat <span className="text-[#8B4513]">Satu Botol</span>
               </h2>
-              
+
               <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
                 <p>
-                  Kami adalah UMKM lokal yang mendedikasikan diri untuk melestarikan minuman tradisional warisan nusantara. 
-                  Bukan sekadar jamu, tapi sebuah komitmen untuk membawa resep leluhur ke gaya hidup modern.
+                  Kami adalah UMKM lokal yang mendedikasikan diri untuk
+                  melestarikan minuman tradisional warisan nusantara. Bukan
+                  sekadar jamu, tapi sebuah komitmen untuk membawa resep leluhur
+                  ke gaya hidup modern.
                 </p>
                 <p>
-                  Dengan bahan-bahan alami seperti kunyit, jahe, dan temulawak pilihan, kami percaya bahwa kesehatan harus bisa 
-                  dinikmati dengan cara yang simpel, murah, dan sudah pasti aman dikonsumsi.
+                  Dengan bahan-bahan alami seperti kunyit, jahe, dan temulawak
+                  pilihan, kami percaya bahwa kesehatan harus bisa dinikmati
+                  dengan cara yang simpel, murah, dan sudah pasti aman
+                  dikonsumsi.
                 </p>
               </div>
 
               {/* Badges Bahan - Dibuat Minimalis */}
               <div className="flex flex-wrap gap-3 mt-10">
-                {['Kunyit Pilihan', 'Jahe Merah', 'Temulawak', 'Tanpa Pengawet'].map((ingredient, i) => (
-                  <div key={i} className="flex items-center gap-2 px-4 py-2 bg-[#FDFBF7] border border-[#E8DCC8] rounded-lg text-[#8B4513] text-sm font-bold uppercase tracking-tighter">
+                {[
+                  "Kunyit Pilihan",
+                  "Jahe Merah",
+                  "Temulawak",
+                  "Tanpa Pengawet",
+                ].map((ingredient, i) => (
+                  <div
+                    key={i}
+                    className="flex items-center gap-2 px-4 py-2 bg-[#FDFBF7] border border-[#E8DCC8] rounded-lg text-[#8B4513] text-sm font-bold uppercase tracking-tighter">
                     <div className="w-1.5 h-1.5 bg-[#D97706] rounded-full" />
                     {ingredient}
                   </div>
@@ -304,12 +356,11 @@ export default function JamuLandingPage() {
               </div>
 
               <div className="mt-12">
-                 <button className="text-[#8B4513] font-black uppercase tracking-widest border-b-2 border-[#8B4513] pb-1 hover:text-[#D97706] hover:border-[#D97706] transition-all">
-                   Baca Sejarah Jamu &rarr;
-                 </button>
+                <button className="text-[#8B4513] font-black uppercase tracking-widest border-b-2 border-[#8B4513] pb-1 hover:text-[#D97706] hover:border-[#D97706] transition-all">
+                  Baca Sejarah Jamu &rarr;
+                </button>
               </div>
             </div>
-
           </div>
         </div>
       </section>
@@ -356,7 +407,7 @@ export default function JamuLandingPage() {
                 } px-6 py-3 rounded-lg font-medium text-sm`}>
                 <span className="mr-2">{cat.icon}</span>
                 {cat.label}
-              </button>
+              </Button>
             ))}
           </div>
         </div>

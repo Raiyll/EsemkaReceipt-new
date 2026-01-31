@@ -4,6 +4,7 @@ import type { Category } from "@/types/category";
 import { Button } from "@base-ui/react";
 import { ArrowRight } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function CategoriesSection() {
   const [category, setCategories] = useState<Category[]>(mockCategories);
@@ -48,10 +49,12 @@ export default function CategoriesSection() {
                   </p>
 
                   <div>
-                    <Button className="bg-[#6B4423] hover:bg-[#FF8C42] text-white px-8 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105 transform group/btn flex items-center">
-                      LIHAT PRODUK
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
-                    </Button>
+                    <Link to={`/categories/${category.id}/products`}>
+                      <Button className="bg-[#6B4423] hover:bg-[#FF8C42] text-white px-8 py-3 rounded-lg font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105 transform group/btn flex items-center">
+                        LIHAT PRODUK
+                        <ArrowRight className="ml-2 w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               </CardContent>
