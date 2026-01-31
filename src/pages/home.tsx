@@ -292,12 +292,12 @@ export default function JamuLandingPage() {
           <p className="mb-10 opacity-90 text-base">Pilih gejala yang anda alami dan<br/>temukan jamu yang tepat</p>
           <div className="flex flex-wrap justify-center gap-4 max-w-4xl mx-auto">
             {[
-              { id: 'masuk-angin', label: 'Masuk angin', icon: '🌡️' },
-              { id: 'batuk', label: 'Batuk', icon: '🤧' },
-              { id: 'flu', label: 'Flu', icon: '😷' },
-              { id: 'sakit-kepala', label: 'Sakit kepala', icon: '🤕' },
-              { id: 'pegal-linu', label: 'Nyeri & pegal', icon: '💪' },
-              { id: 'asam-lambung', label: 'Asam lambung', icon: '🫃' },
+              { id: 'masuk-angin', label: 'Masuk angin', icon: '' },
+              { id: 'batuk', label: 'Batuk', icon: '' },
+              { id: 'flu', label: 'Flu', icon: '' },
+              { id: 'sakit-kepala', label: 'Sakit kepala', icon: '' },
+              { id: 'pegal-linu', label: 'Nyeri & pegal', icon: '' },
+              { id: 'asam-lambung', label: 'Asam lambung', icon: '' },
             ].map((cat) => (
               <Button 
                 key={cat.id}
@@ -429,7 +429,7 @@ export default function JamuLandingPage() {
             </Card>
           )) : (
             <div className="text-center py-20">
-              <div className="text-6xl mb-4">😔</div>
+              <div className="text-6xl mb-4"></div>
               <p className="text-gray-400 text-lg italic">Produk tidak tersedia untuk keluhan ini.</p>
               <Button 
                 onClick={() => setActiveFilter('all')}
