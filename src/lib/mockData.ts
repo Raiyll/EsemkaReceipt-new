@@ -69,6 +69,7 @@ export const mockProducts = [
       "Jamu tradisional kunyit asam untuk menjaga kesehatan pencernaan dan meningkatkan daya tahan tubuh",
     picture_url:
       "https://images.unsplash.com/photo-1615485500704-8e990f9900f7?w=400",
+    is_popular: true,
     created_at: "2024-01-12T10:00:00Z",
     updated_at: "2024-01-12T10:00:00Z",
   },
@@ -77,6 +78,7 @@ export const mockProducts = [
     category_id: 2,
     title: "Jamu Beras Kencur",
     value: 12000,
+    is_popular: true,
     description:
       "Jamu beras kencur segar untuk menjaga stamina dan kesegaran tubuh",
     picture_url:
@@ -89,6 +91,7 @@ export const mockProducts = [
     category_id: 2,
     title: "Jamu Temulawak",
     value: 18000,
+    is_popular: true,
     description:
       "Jamu temulawak untuk menjaga kesehatan liver dan meningkatkan nafsu makan",
     picture_url:
@@ -100,6 +103,7 @@ export const mockProducts = [
     id: 4,
     category_id: 3,
     title: "Jamu Kuat Lelaki",
+    is_popular: false,
     value: 25000,
     description:
       "Jamu tradisional untuk meningkatkan stamina dan vitalitas pria",
@@ -112,6 +116,7 @@ export const mockProducts = [
     id: 5,
     category_id: 2,
     title: "Jamu Sari Rapet",
+    is_popular: false,
     value: 20000,
     description: "Jamu khusus wanita untuk kesehatan dan kecantikan dari dalam",
     picture_url:
@@ -123,6 +128,7 @@ export const mockProducts = [
     id: 6,
     category_id: 4,
     title: "Jamu Gendong Tradisional",
+    is_popular: false,
     value: 10000,
     description:
       "Jamu gendong racikan tradisional dari berbagai rempah pilihan",
@@ -135,6 +141,7 @@ export const mockProducts = [
     id: 7,
     category_id: 1,
     title: "Jamu Cabe Puyang",
+    is_popular: false,
     value: 13000,
     description: "Jamu cabe puyang untuk meredakan pegal linu dan masuk angin",
     picture_url:
@@ -146,6 +153,7 @@ export const mockProducts = [
     id: 8,
     category_id: 1,
     title: "Jamu Pahitan",
+    is_popular: false,
     value: 14000,
     description: "Jamu pahitan untuk membersihkan darah dan menjaga kesehatan",
     picture_url:
