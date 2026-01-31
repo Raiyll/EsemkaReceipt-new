@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "@/pages/home";
-import Products from "@/pages/sections/product";
+import Products from "@/pages/sections/categories";
 import { ComponentExample } from "@/components/component-example";
 
 function App() {
