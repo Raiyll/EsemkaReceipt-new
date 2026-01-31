@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { CheckCircle, Leaf, ShoppingBag, ChevronLeft, ChevronRight } from "lucide-react";
+import { CheckCircle, Leaf, ShoppingBag } from "lucide-react";
 
 // Types
 interface JamuProduct {
