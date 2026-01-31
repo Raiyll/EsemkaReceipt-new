@@ -187,172 +187,129 @@ export default function JamuLandingPage() {
             />
           </div>
           <div className="hidden md:flex gap-6 text-white/90 text-sm font-medium">
-            <a
-              href="#home"
-              className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">
-              BERANDA
-            </a>
-            <a
-              href="#about"
-              className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">
-              TENTANG
-            </a>
-            <a
-              href="#products"
-              className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">
-              PRODUK KAMI
-            </a>
-            <a
-              href="#gallery"
-              className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">
-              GALERI
-            </a>
+            <a href="#home" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">BERANDA</a>
+            <a href="#about" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">TENTANG</a>
+            <a href="/products" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">PRODUK KAMI</a>
+            <a href="#gallery" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">GALERI</a>
           </div>
         </div>
       </nav>
 
-      {/* HERO SECTION with parallax */}
-      <section
-        id="home"
-        className="relative h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
-        <div
-          className="absolute inset-0 z-0"
-          style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
-          <img
+    {/* HERO SECTION with parallax - SEKARANG FULL VIEW */}
+      <section id="home" className="relative h-screen flex flex-col items-center justify-center text-center px-4 overflow-hidden">
+        <div className="absolute inset-0 z-0" style={{ transform: `translateY(${scrollY * 0.5}px)` }}>
+          <img 
             src={JamuBackground}
             alt="Herbal Background"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
+          {/* Overlay gradient - Gelap di bawah biar teks putih kebaca */}
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#f87108]" />
         </div>
 
-        <div
-          className={`relative z-10 text-white max-w-3xl transition-all duration-1000 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-          }`}>
-          <div className="inline-block mb-4 px-4 py-2 bg-[#FF8C42]/20 backdrop-blur-sm rounded-full border border-[#FF8C42]/30">
-            <Sparkles className="inline w-4 h-4 mr-2" />
-            <span className="font-poppins text-sm font-semibold">
-              100% Bahan Alami
-            </span>
+        <div className={`relative z-10 text-white max-w-3xl transition-all duration-1000 ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
+        }`}>
+          <div className="inline-block mb-4 px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20">
+            <Sparkles className="inline w-4 h-4 mr-2 text-[#FF8C42]" />
+            <span className="font-poppins text-sm font-semibold uppercase tracking-widest">100% Bahan Alami</span>
           </div>
-          <h1 className="font-yusei text-5xl md:text-5xl mb-6 leading-tight animate-fade-in">
-            Jamu Sehat dari Dapur
-            <br />
-            Kami untuk Keluarga Anda
+          <h1 className="font-yusei text-5xl md:text-6xl mb-6 font-black leading-tight">
+            Jamu Sehat dari Dapur<br />Kami untuk Keluarga Anda
           </h1>
-          <p className="font-poppins text-lg md:text-xl mb-10 opacity-90 font-light">
-            Minuman tradisi yang menyehatkan, dibuat dengan cinta dan rempah
-            pilihan
+          <p className="font-poppins text-lg md:text-xl mb-10 opacity-90 font-light max-w-2xl mx-auto">
+            Minuman tradisi yang menyehatkan, dibuat dengan cinta dan rempah pilihan
           </p>
-          <div className="font-poppins flex flex-col sm:flex-row gap-4 justify-center">
-            <Button className="bg-[#FF8C42] hover:bg-[#E67A35] text-white rounded-full px-10 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 transform group">
+          <div className="font-poppins flex flex-col sm:flex-row gap-6 justify-center">
+            <Button className="bg-[#D97706] hover:bg-[#B45309] text-white rounded-md px-10 py-7 text-lg font-bold transition-all hover:scale-105 shadow-xl group">
               CEK PRODUK KAMI
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button className="font-poppins bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/30 rounded-full px-10 py-6 text-base font-semibold transition-all hover:scale-105 transform">
+            <Button className="bg-transparent hover:bg-white/10 text-white border-2 border-white rounded-md px-10 py-7 text-lg font-bold transition-all hover:scale-105">
               PELAJARI LEBIH LANJUT
             </Button>
           </div>
         </div>
       </section>
 
-      {/* FEATURES SECTION with hover effects */}
-      <section className="py-16 bg-white grid grid-cols-1 md:grid-cols-3 gap-12 px-8 max-w-6xl mx-auto -mt-16 relative z-20 rounded-2xl shadow-2xl">
-        {[
-          {
-            icon: <CheckCircle className="text-[#FF8C42] w-12 h-12" />,
-            title: "HARGA BERSAHABAT",
-            desc: "Produk berkualitas dengan harga yang terjangkau untuk keluarga Indonesia.",
-            color: "from-orange-50 to-orange-100",
-          },
-          {
-            icon: <Leaf className="text-[#FF8C42] w-12 h-12" />,
-            title: "BAHAN ALAMI",
-            desc: "Dibuat dari rempah-rempah pilihan tanpa bahan kimia berbahaya.",
-            color: "from-green-50 to-green-100",
-          },
-          {
-            icon: <ShoppingBag className="text-[#FF8C42] w-12 h-12" />,
-            title: "VARIAN LENGKAP",
-            desc: "Tersedia berbagai jenis jamu untuk berbagai keluhan kesehatan.",
-            color: "from-amber-50 to-amber-100",
-          },
-        ].map((feat, i) => (
-          <div
-            key={i}
-            className="text-center flex flex-col items-center p-6 rounded-xl transition-all duration-300 hover:scale-105 hover:shadow-lg cursor-pointer group">
-            <div className="mb-4 p-4 rounded-full bg-gradient-to-br from-[#FF8C42]/10 to-[#FF8C42]/5 group-hover:from-[#FF8C42]/20 group-hover:to-[#FF8C42]/10 transition-all">
-              {feat.icon}
-            </div>
-            <h3 className="font-bold text-[#3D2817] mt-3 mb-3 text-lg tracking-wide">
-              {feat.title}
-            </h3>
-            <p className="text-sm text-gray-600 leading-relaxed">{feat.desc}</p>
-          </div>
-        ))}
-      </section>
-
-      {/* STATS SECTION */}
-      <section className="py-20 px-4 bg-gradient-to-r from-[#FF8C42] to-[#E67A35]">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center text-white">
+      {/* FEATURES SECTION - SEKARANG DI BAWAH (TANPA NEGATIVE MARGIN) */}
+      <section className="py-24 bg-[#FDFBF7] relative z-10">
+        <div className="max-w-6xl mx-auto px-8 grid grid-cols-1 md:grid-cols-3 gap-12">
           {[
-            { number: "500+", label: "Pelanggan Puas" },
-            { number: "100%", label: "Bahan Alami" },
-            { number: "6", label: "Varian Jamu" },
-            { number: "5★", label: "Rating Rata-rata" },
-          ].map((stat, i) => (
-            <div
-              key={i}
-              className="transform hover:scale-110 transition-transform duration-300">
-              <div className="text-4xl md:text-5xl font-bold mb-2">
-                {stat.number}
+            { icon: <CheckCircle className="text-[#D97706] w-12 h-12" />, title: "HARGA BERSAHABAT", desc: "Produk berkualitas dengan harga yang terjangkau untuk keluarga Indonesia." },
+            { icon: <Leaf className="text-[#D97706] w-12 h-12" />, title: "BAHAN ALAMI", desc: "Dibuat dari rempah-rempah pilihan tanpa bahan kimia berbahaya." },
+            { icon: <ShoppingBag className="text-[#D97706] w-12 h-12" />, title: "VARIAN LENGKAP", desc: "Tersedia berbagai jenis jamu untuk berbagai keluhan kesehatan." },
+          ].map((feat, i) => (
+            <div 
+              key={i} 
+              className="text-center flex flex-col items-center p-8 rounded-2xl bg-white border border-[#E8DCC8] transition-all duration-300 hover:shadow-xl hover:-translate-y-2 group"
+            >
+              <div className="mb-6 p-5 rounded-2xl bg-[#FDFBF7] group-hover:bg-[#D97706]/10 transition-colors">
+                {feat.icon}
               </div>
-              <div className="text-sm md:text-base opacity-90">
-                {stat.label}
-              </div>
+              <h3 className="font-black text-[#3D2817] mb-4 text-xl tracking-tight uppercase">{feat.title}</h3>
+              <p className="text-gray-600 leading-relaxed font-medium">{feat.desc}</p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* ABOUT SECTION with animation */}
-      <section
-        id="about"
-        className="py-24 px-4 text-center relative overflow-hidden">
-        <div className="absolute inset-0 opacity-5">
-          <div className="absolute top-10 left-10 w-64 h-64 bg-[#FF8C42] rounded-full blur-3xl animate-pulse" />
-          <div
-            className="absolute bottom-10 right-10 w-96 h-96 bg-[#6B4423] rounded-full blur-3xl animate-pulse"
-            style={{ animationDelay: "1s" }}
-          />
-        </div>
-        <div className="relative z-10">
-          <h2 className="font-poppins text-3xl md:text-4xl font-bold text-[#6B4423] mb-12 tracking-wide">
-            SEKILAS TENTANG KAMI
-          </h2>
-          <div className="bg-gradient-to-br from-[#6B4423] to-[#5D4037] text-white p-10 md:p-16 rounded-3xl max-w-4xl mx-auto leading-relaxed shadow-2xl transform hover:scale-105 transition-all duration-300">
-            <p className="font-poppins text-base md:text-lg mb-6">
-              Kami adalah UMKM lokal yang mendedikasikan diri untuk melestarikan
-              minuman tradisional warisan nusantara. Dengan bahan-bahan alami
-              seperti kunyit, jahe, dan temulawak pilihan, kami percaya bahwa
-              kesehatan harus bisa dinikmati dengan cara yang simpel, murah, dan
-              sudah pasti aman dikonsumsi.
-            </p>
-            <div className="flex flex-wrap justify-center gap-3 mt-8">
-              {[
-                "Kunyit Pilihan",
-                "Jahe Merah",
-                "Temulawak",
-                "Rempah Nusantara",
-              ].map((ingredient, i) => (
-                <span
-                  key={i}
-                  className="px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-sm border border-white/20">
-                  {ingredient}
-                </span>
-              ))}
+      {/* ABOUT SECTION - REINVENTED */}
+      <section id="about" className="py-24 px-4 bg-white overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center gap-16 md:gap-24">
+            
+            {/* Sisi Gambar - Pake bingkai estetik */}
+            <div className="w-full md:w-1/2 relative">
+              <div className="relative z-10 rounded-3xl overflow-hidden shadow-2xl">
+                <img 
+                  src={JamuBackground} // Pake image yang sama atau image proses pembuatan
+                  alt="Traditional Jamu Process" 
+                  className="w-full h-[500px] object-cover hover:scale-105 transition-transform duration-700"
+                />
+              </div>
+              {/* Dekorasi Aksen di belakang gambar */}
+              <div className="absolute -bottom-6 -right-6 w-full h-full bg-[#E8DCC8] rounded-3xl -z-0" />
+              <div className="absolute -top-10 -left-10 w-32 h-32 bg-[#D97706]/10 rounded-full blur-2xl" />
             </div>
+
+            {/* Sisi Teks - Dibuat lebih clean & berkelas */}
+            <div className="w-full md:w-1/2 text-left">
+              <span className="text-[#D97706] font-bold tracking-[0.3em] uppercase text-sm mb-4 block">
+                Warisan Nusantara
+              </span>
+              <h2 className="text-4xl md:text-5xl font-black text-[#3D2817] mb-8 leading-tight uppercase">
+                Melestarikan Tradisi <br/>Lewat <span className="text-[#8B4513]">Satu Botol</span>
+              </h2>
+              
+              <div className="space-y-6 text-gray-600 text-lg leading-relaxed">
+                <p>
+                  Kami adalah UMKM lokal yang mendedikasikan diri untuk melestarikan minuman tradisional warisan nusantara. 
+                  Bukan sekadar jamu, tapi sebuah komitmen untuk membawa resep leluhur ke gaya hidup modern.
+                </p>
+                <p>
+                  Dengan bahan-bahan alami seperti kunyit, jahe, dan temulawak pilihan, kami percaya bahwa kesehatan harus bisa 
+                  dinikmati dengan cara yang simpel, murah, dan sudah pasti aman dikonsumsi.
+                </p>
+              </div>
+
+              {/* Badges Bahan - Dibuat Minimalis */}
+              <div className="flex flex-wrap gap-3 mt-10">
+                {['Kunyit Pilihan', 'Jahe Merah', 'Temulawak', 'Tanpa Pengawet'].map((ingredient, i) => (
+                  <div key={i} className="flex items-center gap-2 px-4 py-2 bg-[#FDFBF7] border border-[#E8DCC8] rounded-lg text-[#8B4513] text-sm font-bold uppercase tracking-tighter">
+                    <div className="w-1.5 h-1.5 bg-[#D97706] rounded-full" />
+                    {ingredient}
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-12">
+                 <button className="text-[#8B4513] font-black uppercase tracking-widest border-b-2 border-[#8B4513] pb-1 hover:text-[#D97706] hover:border-[#D97706] transition-all">
+                   Baca Sejarah Jamu &rarr;
+                 </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -399,14 +356,9 @@ export default function JamuLandingPage() {
                 } px-6 py-3 rounded-lg font-medium text-sm`}>
                 <span className="mr-2">{cat.icon}</span>
                 {cat.label}
-              </Button>
+              </button>
             ))}
           </div>
-          <Button
-            variant="ghost"
-            className="mt-6 text-sm underline hover:bg-transparent hover:text-white hover:scale-105 transition-transform">
-            <Link to="/products">Lihat Semua Produk Kami</Link>
-          </Button>
         </div>
       </section>
 
