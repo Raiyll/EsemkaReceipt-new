@@ -2,6 +2,13 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 @import "@fontsource-variable/inter";
+@tailwind utilities;
+
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-yusei: "Yusei Magic", cursive;
+}
+
 
 @custom-variant dark (&:is(.dark *));
 

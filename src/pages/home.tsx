@@ -5,6 +5,7 @@ import JamuLogo from '@/assets/jamu-logo.png';
 import JamuBackground from '@/assets/jamu-background.jpg';
 import JamuAssets1 from '@/assets/jamu-assets1.jpeg';
 import JamuAssets2 from '@/assets/jamu-assets2.jpeg';
+import JamuAssets3 from '@/assets/jamu-assets3.jpeg';
 import ProductSection from './sections/product';
 
 // Types
@@ -82,7 +83,8 @@ const PRODUCTS: JamuProduct[] = [
 const CAROUSEL_IMAGES = [
   JamuAssets1,
   JamuAssets2,
-  "https://images.unsplash.com/photo-1609692814858-951d5ebe8ff9?auto=format&fit=crop&q=80&w=800",
+  JamuAssets3,
+  JamuAssets1,
 ];
 
 const TESTIMONIALS = [
@@ -101,7 +103,6 @@ export default function JamuLandingPage() {
   useEffect(() => {
     const handleScroll = () => setScrollY(window.scrollY);
     window.addEventListener('scroll', handleScroll);
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsVisible(true);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -129,6 +130,10 @@ export default function JamuLandingPage() {
     setCurrentSlide((prev) => (prev - 1 + CAROUSEL_IMAGES.length) % CAROUSEL_IMAGES.length);
   };
 
+  // Helper function to get previous, current, and next indices
+  const getPrevIndex = () => (currentSlide - 1 + CAROUSEL_IMAGES.length) % CAROUSEL_IMAGES.length;
+  const getNextIndex = () => (currentSlide + 1) % CAROUSEL_IMAGES.length;
+
   return (
     <div className="bg-[#FAF8F3] min-h-screen font-sans text-[#3D2817] overflow-x-hidden">
       
@@ -149,10 +154,10 @@ export default function JamuLandingPage() {
             />
           </div>
           <div className="hidden md:flex gap-6 text-white/90 text-sm font-medium">
-            <a href="#home" className="hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">BERANDA</a>
-            <a href="#about" className="hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">TENTANG</a>
-            <a href="#products" className="hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">PRODUK KAMI</a>
-            <a href="#gallery" className="hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">GALERI</a>
+            <a href="#home" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">BERANDA</a>
+            <a href="#about" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">TENTANG</a>
+            <a href="#products" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">PRODUK KAMI</a>
+            <a href="#gallery" className="font-poppins hover:text-[#FF8C42] transition-colors duration-300 hover:scale-105 transform">GALERI</a>
           </div>
         </div>
       </nav>
@@ -167,44 +172,26 @@ export default function JamuLandingPage() {
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60" />
         </div>
-        
-        {/* Floating particles effect */}
-        {/* <div className="absolute inset-0 z-5">
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute bg-white/10 rounded-full animate-float"
-              style={{
-                width: `${Math.random() * 10 + 5}px`,
-                height: `${Math.random() * 10 + 5}px`,
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 5}s`,
-                animationDuration: `${Math.random() * 10 + 10}s`,
-              }}
-            />
-          ))}
-        </div> */}
 
         <div className={`relative z-10 text-white max-w-3xl transition-all duration-1000 ${
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
         }`}>
           <div className="inline-block mb-4 px-4 py-2 bg-[#FF8C42]/20 backdrop-blur-sm rounded-full border border-[#FF8C42]/30">
             <Sparkles className="inline w-4 h-4 mr-2" />
-            <span className="text-sm font-semibold">100% Bahan Alami</span>
+            <span className="font-poppins text-sm font-semibold">100% Bahan Alami</span>
           </div>
-          <h1 className="text-5xl md:text-5xl font-bold mb-6 leading-tight animate-fade-in">
+          <h1 className="font-yusei text-5xl md:text-5xl mb-6 leading-tight animate-fade-in">
             Jamu Sehat dari Dapur<br />Kami untuk Keluarga Anda
           </h1>
-          <p className="text-lg md:text-xl mb-10 opacity-90 font-light">
+          <p className="font-poppins text-lg md:text-xl mb-10 opacity-90 font-light">
             Minuman tradisi yang menyehatkan, dibuat dengan cinta dan rempah pilihan
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="font-poppins flex flex-col sm:flex-row gap-4 justify-center">
             <Button className="bg-[#FF8C42] hover:bg-[#E67A35] text-white rounded-full px-10 py-6 text-base font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105 transform group">
               CEK PRODUK KAMI
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
-            <Button className="bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/30 rounded-full px-10 py-6 text-base font-semibold transition-all hover:scale-105 transform">
+            <Button className="font-poppins bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white border-2 border-white/30 rounded-full px-10 py-6 text-base font-semibold transition-all hover:scale-105 transform">
               PELAJARI LEBIH LANJUT
             </Button>
           </div>
@@ -255,13 +242,9 @@ export default function JamuLandingPage() {
           <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#6B4423] rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
         <div className="relative z-10">
-          <div className="inline-block mb-4 px-6 py-2 bg-[#FF8C42]/10 rounded-full">
-            <Heart className="inline w-4 h-4 mr-2 text-[#FF8C42]" />
-            <span className="text-sm font-semibold text-[#FF8C42]">Tentang Kami</span>
-          </div>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#6B4423] mb-12 tracking-wide">SEKILAS PERJALANAN KAMI</h2>
+          <h2 className="font-poppins text-3xl md:text-4xl font-bold text-[#6B4423] mb-12 tracking-wide">SEKILAS TENTANG KAMI</h2>
           <div className="bg-gradient-to-br from-[#6B4423] to-[#5D4037] text-white p-10 md:p-16 rounded-3xl max-w-4xl mx-auto leading-relaxed shadow-2xl transform hover:scale-105 transition-all duration-300">
-            <p className="text-base md:text-lg mb-6">
+            <p className="font-poppins text-base md:text-lg mb-6">
               Kami adalah UMKM lokal yang mendedikasikan diri untuk melestarikan minuman tradisional warisan nusantara. 
               Dengan bahan-bahan alami seperti kunyit, jahe, dan temulawak pilihan, kami percaya bahwa kesehatan harus bisa 
               dinikmati dengan cara yang simpel, murah, dan sudah pasti aman dikonsumsi.
@@ -321,102 +304,97 @@ export default function JamuLandingPage() {
         </div>
       </section>
 
-      {/* CAROUSEL SECTION with auto-play */}
-      <section id="gallery" className="py-20 px-4 bg-gradient-to-br from-[#6B4423] to-[#5D4037]">
-        <div className="max-w-6xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 uppercase tracking-wider">NO SHORTCUTS</h2>
-          <p className="text-white/80 text-lg mb-12 italic">Just authentic, natural jamu.</p>
-          
-          <div className="relative group">
-            <div className="overflow-hidden rounded-3xl shadow-2xl">
-              <div className="flex transition-transform duration-700 ease-out" style={{ transform: `translateX(-${currentSlide * 100}%)` }}>
-                {CAROUSEL_IMAGES.map((img, idx) => (
-                  <div key={idx} className="min-w-full">
-                    <img src={img} alt={`Slide ${idx + 1}`} className="w-full h-96 object-cover transform group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                ))}
-              </div>
-            </div>
-            
-            <button 
-              onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-[#FF8C42] hover:bg-[#E67A35] text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110 transform"
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button 
-              onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-[#FF8C42] hover:bg-[#E67A35] text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100 hover:scale-110 transform"
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
-            
-            <div className="flex justify-center gap-2 mt-6">
-              {CAROUSEL_IMAGES.map((_, idx) => (
-                <button
-                  key={idx}
-                  onClick={() => setCurrentSlide(idx)}
-                  className={`transition-all duration-300 rounded-full ${
-                    currentSlide === idx ? 'bg-[#FF8C42] w-8 h-3' : 'bg-white/40 w-3 h-3 hover:bg-white/60'
-                  }`}
-                />
-              ))}
-            </div>
-          </div>
-          
-          <Button className="bg-[#FF8C42] hover:bg-[#E67A35] text-white rounded-full px-10 py-6 text-base font-semibold shadow-lg mt-10 hover:scale-105 transition-all transform group">
-            LIHAT LEBIH BANYAK
-            <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Button>
-        </div>
-      </section>
-
-      {/* Products Section */}
-      <ProductSection />
+      {/* CAROUSEL SECTION */}
+<section id="gallery" className="py-20 px-4 bg-[#E8DCC8] relative overflow-hidden">
+  {/* Dekorasi Atas Solid */}
+  <div className="absolute top-0 left-0 right-0 h-16 bg-[#5D4037]/10"></div>
+  
+  <div className="max-w-7xl mx-auto text-center relative">
+    <h2 className="font-sans text-4xl md:text-5xl font-bold text-[#8B4513] mb-3 uppercase tracking-wider">
+      NO SHORTCUTS
+    </h2>
+    <p className="font-sans text-[#8B4513]/80 text-lg md:text-xl mb-16 italic">
+      Just authentic, natural jamu.
+    </p>
+    
+    <div className="relative flex items-center justify-center min-h-[400px] md:min-h-[500px]">
       
+      {/* Navigasi Kiri - Flat */}
+      <button 
+        onClick={prevSlide}
+        className="absolute left-4 md:left-8 lg:left-16 z-30 bg-[#D97706] hover:bg-[#B45309] text-white p-4 rounded-md transition-colors"
+      >
+        <ChevronLeft className="w-6 h-6 md:w-8 md:h-8" />
+      </button>
 
-      {/* TESTIMONIALS SECTION */}
-      <section className="py-20 px-4 bg-gradient-to-br from-[#FAF8F3] to-[#F5F1E8]">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-[#6B4423] mb-12">APA KATA MEREKA</h2>
-          <div className="relative h-64 flex items-center justify-center">
-            {TESTIMONIALS.map((testimonial, idx) => (
-              <div
-                key={idx}
-                className={`absolute w-full transition-all duration-500 ${
-                  currentTestimonial === idx 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-4 pointer-events-none'
-                }`}
-              >
-                <div className="bg-white p-8 rounded-2xl shadow-lg max-w-2xl mx-auto">
-                  <div className="flex justify-center mb-4">
-                    {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="w-5 h-5 fill-[#FF8C42] text-[#FF8C42]" />
-                    ))}
-                  </div>
-                  <p className="text-gray-700 text-lg mb-4 italic">"{testimonial.text}"</p>
-                  <p className="font-bold text-[#6B4423]">- {testimonial.name}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="flex justify-center gap-2 mt-8">
-            {TESTIMONIALS.map((_, idx) => (
-              <button
-                key={idx}
-                onClick={() => setCurrentTestimonial(idx)}
-                className={`transition-all duration-300 rounded-full ${
-                  currentTestimonial === idx ? 'bg-[#FF8C42] w-8 h-3' : 'bg-gray-300 w-3 h-3'
-                }`}
-              />
-            ))}
+      {/* Container Gambar */}
+      <div className="relative w-full max-w-5xl mx-auto px-10 md:px-32">
+        
+        {/* Gambar Kiri (Samping) - Radius diperdalam */}
+        <div className="absolute left-0 top-1/2 -translate-y-1/2 z-10 hidden md:block">
+          <div 
+            key={`prev-${currentSlide}`}
+            className="w-40 h-56 lg:w-60 lg:h-80 rounded-3xl overflow-hidden opacity-30 scale-90 transition-all duration-700"
+          >
+            <img 
+              src={CAROUSEL_IMAGES[getPrevIndex()]} 
+              className="w-full h-full object-cover"
+              alt=""
+            />
           </div>
         </div>
-      </section>
 
+        {/* Gambar Tengah (Fokus) - Radius diperdalam */}
+        <div className="relative z-20 mx-auto">
+          <div 
+            key={`curr-${currentSlide}`}
+            className="w-64 h-80 md:w-80 md:h-[400px] lg:w-[450px] lg:h-[500px] rounded-3xl overflow-hidden mx-auto animate-in fade-in slide-in-from-right-10 duration-700"
+          >
+            <img 
+              src={CAROUSEL_IMAGES[currentSlide]} 
+              className="w-full h-full object-cover"
+              alt="Current Product"
+            />
+          </div>
+        </div>
+
+        {/* Gambar Kanan (Samping) - Radius diperdalam */}
+        <div className="absolute right-0 top-1/2 -translate-y-1/2 z-10 hidden md:block">
+          <div 
+            key={`next-${currentSlide}`}
+            className="w-40 h-56 lg:w-60 lg:h-80 rounded-3xl overflow-hidden opacity-30 scale-90 transition-all duration-700"
+          >
+            <img 
+              src={CAROUSEL_IMAGES[getNextIndex()]} 
+              className="w-full h-full object-cover"
+              alt=""
+            />
+          </div>
+        </div>
+
+      </div>
+
+      {/* Navigasi Kanan - Flat */}
+      <button 
+        onClick={nextSlide}
+        className="absolute right-4 md:right-8 lg:right-16 z-30 bg-[#D97706] hover:bg-[#B45309] text-white p-4 rounded-md transition-colors"
+      >
+        <ChevronRight className="w-6 h-6 md:w-8 md:h-8" />
+      </button>
+
+    </div>
+
+    <div className="mt-16">
+      <Button className="bg-[#D97706] hover:bg-[#B45309] text-white rounded-md px-10 py-6 text-lg font-bold transition-colors uppercase tracking-widest">
+        COBA PRODUK KAMI
+      </Button>
+    </div>
+  </div>
+</section>
+
+      
       {/* CTA SECTION */}
-      <section className="py-20 px-4 bg-gradient-to-r from-[#FF8C42] to-[#E67A35] text-white text-center">
+      <section className="py-20 px-4 bg-[#E67A35] text-white text-center">
         <div className="max-w-3xl mx-auto">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Siap Mencoba Jamu Kami?</h2>
           <p className="text-lg mb-8 opacity-90">
@@ -427,7 +405,8 @@ export default function JamuLandingPage() {
           </Button>
         </div>
       </section>
- {/* FOOTER */}
+
+      {/* FOOTER */}
       <footer className="bg-[#2D1C0F] text-white py-12">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
@@ -505,7 +484,6 @@ export default function JamuLandingPage() {
           </div>
         </div>
       </footer>
-
 
     </div>
   );
